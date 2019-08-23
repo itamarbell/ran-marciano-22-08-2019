@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import { observer } from 'mobx-react'
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Landing from './components/Landing';
+import Favorites from './components/Favorites';
 
 @observer
 class App extends Component{
   render(){
-      return (
-    <div className="App">
-    </div>
-  );
+    return (
+      <Router>
+        <div className="App">
+          <div id="nav-bar">
+            <Link to="/" style={{ textDecoration: 'none'}}>Home</Link>
+            <Link to="/favorites" style={{ textDecoration: 'none'}}>Favorites</Link>
+          </div>
+          <Route exact path="/" component={Landing}/>
+          <Route exact path="/favorites" component={Favorites} />
+        </div>
+      </Router>
+    );
   }
 
 }
