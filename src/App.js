@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 import { observer } from 'mobx-react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Landing from './components/Landing';
-import Favorites from './components/Favorites';
+import Landing from './components/LandingPage/Landing';
+import Favorites from './components/FavoritesPage/Favorites';
 
 @observer
 class App extends Component{
