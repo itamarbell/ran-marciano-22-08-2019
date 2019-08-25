@@ -10,6 +10,7 @@ import TodayWeather from './TodayWeather';
 class CityWeather extends Component {
 
     componentDidMount(){
+        // this.props.cityStore.getCityByGeoLocation()
         this.props.cityStore.handleInput('tel aviv')
         this.props.cityStore.searchCity()
     }

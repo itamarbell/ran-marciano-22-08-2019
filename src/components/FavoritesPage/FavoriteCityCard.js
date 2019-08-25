@@ -15,8 +15,7 @@ class FavoriteCityCard extends Component {
     }
 
     searchThisCity = () => {
-        this.props.cityStore.handleInput(this.props.cityData.name)
-        this.props.cityStore.searchCity()
+        this.props.cityStore.loadSave(this.props.cityData.name)
     }
 
     render() {
@@ -25,7 +24,7 @@ class FavoriteCityCard extends Component {
         return (
             <Grid item to='/' component={Link} onClick={this.searchThisCity} style={{textDecoration: 'none'}}>
                 <Card>
-                    <Grid container direction="column" justify="center" alignItems="center" style={{height: '15vw', width: '15vh' }}>
+                    <Grid container direction="column" justify="center" alignItems="center" style={{ width: '20vh' }}>
                         <Grid item>
                             <Typography variant="h6" >
                                 {cityData.name}

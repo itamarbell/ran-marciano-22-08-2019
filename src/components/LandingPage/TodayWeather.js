@@ -19,7 +19,7 @@ class TodayWeather extends Component {
         let cityStore = this.props.cityStore
         let favoritesStore = this.props.favoritesStore
         cityStore.handleSavings()
-        if(cityStore.isSaved){
+        if(cityStore.city.isSaved){
             favoritesStore.pushToFavorites(cityStore.city.key, cityStore.city.name)
         }
         else{
@@ -46,7 +46,7 @@ class TodayWeather extends Component {
                 </Grid>  
                 <Grid item >
                     <IconButton color="secondary" onClick={this.handleSavings}>
-                        {cityStore.isSaved? 
+                        {cityStore.city.isSaved? 
                         <FavoriteIcon fontSize='large' />
                         : <FavoriteBorderIcon fontSize='large' />}
                     </IconButton>

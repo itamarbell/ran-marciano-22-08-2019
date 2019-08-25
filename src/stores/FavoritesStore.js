@@ -7,7 +7,8 @@ export class FavoritesStore {
 
     @action pushToFavorites =  (cityKey, cityName) => {
         let cityToSave = {key: cityKey,
-                          name: cityName,}
+                          name: cityName,
+                            isSaved: true}
         // axios.get(this.currentConditionsUrl(cityKey))
         // .then((response) => {
         //     cityToSave.currentConditions = { date: response.data[0].LocalObservationDateTime,
@@ -17,6 +18,9 @@ export class FavoritesStore {
         //     this.favoriteCities.push(cityToSave)
         //     localStorage.savedCities = JSON.stringify(this.favoriteCities)   
         // })
+        // .catch((err) =>{
+        //      console.log(err)
+        // } )
         let data = CurrentData
         cityToSave.currentConditions = { date: data[0].LocalObservationDateTime,
                                           weatherText: data[0].WeatherText,
@@ -43,14 +47,4 @@ export class FavoritesStore {
     }
 
     currentConditionsUrl = cityKey => `${this.API_HOST}currentconditions/v1/${cityKey}?apikey=${this.API_KEY}`
-
-    // getCurrentConditions = (cityKey) => {
-    //     axios.get(this.currentConditionsUrl(cityKey))
-    //     .then((response) => {
-    //         let currentConditions = { date: response.data[0].LocalObservationDateTime,
-    //                                   weatherText: response.data[0].WeatherText,
-    //                                   temperature: response.data[0].Temperature}    
-    //         return currentConditions
-    //     })
-    // }
 }
